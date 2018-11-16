@@ -79,3 +79,10 @@ let esPar = (numero) => {
     console.log(`El numero ${numero} no es Par`)
 }
 esPar(49);
+
+
+//esPar con ternario
+let esPar2 = (numero2) => {
+    numero2 = ((numero2 % 2 === 0) ? console.log(`El numero ${numero2} es Par`) : console.log(`El numero ${numero2} no es Par`));
+    }
+esPar2(99);
