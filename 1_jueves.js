@@ -31,7 +31,7 @@ let descendente = (arreglo2) => {
             if(arreglo2[j]<arreglo2[j+1]){
                 temp = arreglo2[j];
                 arreglo2[j] = arreglo2[j+1];
-                arreglo2[j+1] = temp
+                arreglo2[j+1] = temp;
             }
         }
     }
