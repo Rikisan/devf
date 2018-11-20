@@ -110,30 +110,35 @@ altura_rectangulo.perimetroR()
 // Generar el RFC a partir de el nombre, edad y sexo
 
 class Ciudadano extends Persona{
-    constructor (nombre, edad, sexo, peso, altura){
+    constructor (nombre, apellido, edad, sexo, peso, altura){
         super(nombre, edad)
         this.sexo = sexo
         this.peso = peso
         this.altura = altura
+        this.apellido = apellido
     }
     calcularIMC(){
         console.log(`El ciudadano ${(this.nombre)} tiene un IMC: ${Number((this.peso/this.altura**2).toFixed(2))}`);
     }
+    esMayorDeEdad(){
+        ((this.edad >= 18) ? console.log(`El ciudadano ${(this.nombre)} es mayor de edad`) : console.log(`El ciudadano ${(this.nombre)} NO es mayor de edad`));
+    }
 }
 
-let nuevoCiudadano = new Ciudadano('Ricardo Labarca', 31, 'Masculino', 69, 1.69)
-nuevoCiudadano.calcularIMC()
+let nuevoCiudadano = new Ciudadano('Ricardo Enrique', 'Labarca Toledo', 31, 'Masculino', 69, 1.69)
+nuevoCiudadano.calcularIMC();
+nuevoCiudadano.esMayorDeEdad();
 
 let calRFC = (ciudadano) => {
 pos = ciudadano.nombre.indexOf(" ");
-apellido2 = ciudadano.nombre.substr(pos+1,2);
-apellido1 = ciudadano.nombre.substr(pos+1,1);
+apellido2 = ciudadano.apellido.substr(0,2);
+apellido1 = ciudadano.apellido.substr(pos+1,1);
 nombre1 = ciudadano.nombre.substr(0,1);
-RFC = apellido2+apellido1+nombre1;
 
  fecha = new Date();
- ano = fecha.getFullYear();
+ ano = fecha.getFullYear() - ciudadano.edad - 1900;
+
+ RFC = apellido2+apellido1+nombre1+ano;
+ console.log(`El RFC del ciudadano es : ${(RFC.toUpperCase())}`);
 }
 calRFC(nuevoCiudadano);
-console.log(RFC);
-console.log(`${(ano-nuevoCiudadano.edad)}`);
