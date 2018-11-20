@@ -45,7 +45,7 @@ RicardoLabarcaEmpleado.comer('Chocolate')
 
 //Ejercicios
 
-// 1-Crear un objeto de tipo triangulo con atributos base y altura y tener el metodo  area y perimetro.
+// 1-Crear un objeto de tipo triangulo rectangulo con atributos base y altura y tener el metodo  area y perimetro.
 
 class triangulo{
     constructor(base, altura){
@@ -110,12 +110,14 @@ altura_rectangulo.perimetroR()
 // Generar el RFC a partir de el nombre, edad y sexo
 
 class Ciudadano extends Persona{
-    constructor (nombre, apellido, edad, sexo, peso, altura){
+    constructor (nombre, apellido, edad, sexo, peso, altura, dia, mes){
         super(nombre, edad)
         this.sexo = sexo
         this.peso = peso
         this.altura = altura
         this.apellido = apellido
+        this.dia = dia
+        this.mes = mes
     }
     calcularIMC(){
         console.log(`El ciudadano ${(this.nombre)} tiene un IMC: ${Number((this.peso/this.altura**2).toFixed(2))}`);
@@ -125,7 +127,7 @@ class Ciudadano extends Persona{
     }
 }
 
-let nuevoCiudadano = new Ciudadano('Ricardo Enrique', 'Labarca Toledo', 31, 'Masculino', 69, 1.69)
+let nuevoCiudadano = new Ciudadano('Ricardo Enrique', 'Labarca Toledo', 31, 'Masculino', 69, 1.69, 30, 10)
 nuevoCiudadano.calcularIMC();
 nuevoCiudadano.esMayorDeEdad();
 
@@ -138,7 +140,7 @@ nombre1 = ciudadano.nombre.substr(0,1);
  fecha = new Date();
  ano = fecha.getFullYear() - ciudadano.edad - 1900;
 
- RFC = apellido2+apellido1+nombre1+ano;
+ RFC = apellido2+apellido1+nombre1+ano+ciudadano.mes+ciudadano.dia;
  console.log(`El RFC del ciudadano es : ${(RFC.toUpperCase())}`);
 }
 calRFC(nuevoCiudadano);
