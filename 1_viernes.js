@@ -127,14 +127,15 @@ class Ciudadano extends Persona{
     }
 }
 
-let nuevoCiudadano = new Ciudadano('Ricardo Enrique', 'Labarca Toledo', 31, 'Masculino', 69, 1.69, 30, 10)
+let nuevoCiudadano = new Ciudadano('Carlos Eduardo', 'Estrada Guardado', 30, 'Masculino', 69, 1.69, 12, 09)
 nuevoCiudadano.calcularIMC();
 nuevoCiudadano.esMayorDeEdad();
 
 let calRFC = (ciudadano) => {
 pos = ciudadano.nombre.indexOf(" ");
+pos2 = ciudadano.apellido.indexOf(" ");
 apellido2 = ciudadano.apellido.substr(0,2);
-apellido1 = ciudadano.apellido.substr(pos+1,1);
+apellido1 = ciudadano.apellido.substr(pos2+1,1);
 nombre1 = ciudadano.nombre.substr(0,1);
 
  fecha = new Date();
@@ -144,3 +145,5 @@ nombre1 = ciudadano.nombre.substr(0,1);
  console.log(`El RFC del ciudadano es : ${(RFC.toUpperCase())}`);
 }
 calRFC(nuevoCiudadano);
+
+//corregir apellido para el RFC
