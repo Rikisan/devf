@@ -1,0 +1,38 @@
+//Ejercicios de GET y POST en express
+
+const express = require('express')
+const app = express()
+
+let books = [2,4,6,8,10]
+
+app.get('/', (request, response) => {
+    console.log('Recibimos una peticion GET al /')
+    response.send(books)
+})
+
+app.get('/:pos', (request, response) => {
+    console.log('Estoy en el GET /:pos')
+    let miPos = request.params.pos
+    console.log(`Recibimos el libro  ${books[miPos]} en la pos = ${miPos}`)
+    response.send('' + books[miPos])
+})
+
+app.get('/get3', (request, response) => {
+    console.log('Recibimos una peticion GET al /');
+    response.send('<h3>Hola Devf, estamos obteniendo un h3</h3>')
+})
+
+app.post('/', (request, response) => {
+    console.log('Enviando...')
+    response.send('<h1>Mira tu consola, esto es un POST</h1>')
+})
+
+app.post('/post2', (request, response) => {
+    console.log('Enviando...')
+    response.send('<h1>Mira tu consola, esto es un POST2</h1>')
+})
+
+//Levanta el servidor
+app.listen(3000, () => {
+    console.log('comenzamos a correr en el puerto 3000');
+})

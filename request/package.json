@@ -1,0 +1,14 @@
+{
+  "name": "Ejercicio_Request",
+  "version": "1.0.0",
+  "description": "calando promesas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rikisan",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
