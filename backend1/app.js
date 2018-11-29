@@ -3,6 +3,11 @@
 const express = require('express')
 const app = express()
 
+//archivos a incluir
+const librosImportados = require('./routes/libros')
+app.use('/libros', librosImportados)
+
+//declarando "libros"
 let books = [2,4,6,8,10]
 
 app.get('/', (request, response) => {
@@ -10,11 +15,15 @@ app.get('/', (request, response) => {
     response.send(books)
 })
 
+app.get('/books', (req, res) => {
+    res.send(books)
+})
+
 app.get('/:pos', (request, response) => {
     console.log('Estoy en el GET /:pos')
     let miPos = request.params.pos
     console.log(`Recibimos el libro  ${books[miPos]} en la pos = ${miPos}`)
-    response.send('' + books[miPos])
+    response.status(200).send('' + books[miPos])
 })
 
 app.get('/get3', (request, response) => {
