@@ -1,6 +1,8 @@
-onst express = require('express')
+const express = require('express')
 const router = express.Router()
 const bodyParser = require('body-parser')
+
+const LibroModel = require('../models/LibroModel')
 
 router.use(bodyParser.json())
 
@@ -14,8 +16,15 @@ let libros = []
 }
 */
 
-
 router.get('/', (req, res) => {
+    let libroNuevo = new LibroModel({
+        titulo: "HP 70",
+        descripcion: "mas libros",
+        anio: 3000
+    })
+
+    libroNuevo.save()
+
     res.send(libros)
 })
 

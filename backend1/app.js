@@ -2,9 +2,17 @@
 
 const express = require('express')
 const app = express()
-
-//archivos a incluir
 const librosImportados = require('./routes/libros')
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/libreria')
+
+mongoose.connection.once('open', () =>{
+    console.log("Me pude conectar a la base de datos xD")
+}).on('error', () => {
+    console.log("No me pude conectar :(")
+});
+
+
 app.use('/libros', librosImportados)
 
 //declarando "libros"
