@@ -28,11 +28,26 @@ router.get('/', (req, res) => {
     res.send(libros)
 })
 
+//con conexion a mongodb
 router.post('/', (req, res) => {
+    console.log(req.body)
+
+    let libroNuevo = new LibroModel({
+        titulo: req.body.titulo,
+        descripcion: req.body.descripcion,
+        anio: req.body.anio
+    })
+
+    libroNuevo.save()
+    res.status(200).send(req.body) //o send(libroNuevo)
+})
+
+/*router.post('/', (req, res) => {
     console.log(req.body)
     libros.push(req.body)
     res.send(req.body)
 })
+*/
 
 router.delete('/:libros', (req, res) => { //envio el libro que quiero eliminar a http://localhost:3000/libros/<libro que quiero eliminar>
     let index = -1;
