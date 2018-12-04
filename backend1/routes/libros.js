@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
     })
 })
 
+//con conexion a mongodb
 router.post('/', (req, res) => {
     console.log(req.body)
 
@@ -34,7 +35,17 @@ router.post('/', (req, res) => {
 
     libroNuevo.save()
     res.status(200).send(req.body) //o send(libroNuevo)
+<<<<<<< HEAD
+=======
 })
+
+/*router.post('/', (req, res) => {
+    console.log(req.body)
+    libros.push(req.body)
+    res.send(req.body)
+>>>>>>> a707e8e9d0fbd3274f09ed6c6e22020af9d13f4e
+})
+*/
 
 router.delete('/:libros', (req, res) => { //envio el libro que quiero eliminar a http://localhost:3000/libros/<libro que quiero eliminar>
     let index = -1;
