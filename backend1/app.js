@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/libreria')
 
 mongoose.connection.once('open', () =>{
-    console.log("Me pude conectar a la base de datos xD")
+    console.log("Me pude conectar a la base de datos =D")
 }).on('error', () => {
     console.log("No me pude conectar :(")
 });
