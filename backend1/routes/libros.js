@@ -27,6 +27,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body)
 
+// let libroNuevo = new LibroModel(req.body) by Kachyz   
     let libroNuevo = new LibroModel({
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
@@ -35,8 +36,8 @@ router.post('/', (req, res) => {
 
     libroNuevo.save()
     res.status(200).send(req.body) //o send(libroNuevo)
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 })
 
 /*router.post('/', (req, res) => {

@@ -4,7 +4,11 @@ const express = require('express')
 const app = express()
 const librosImportados = require('./routes/libros')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/libreria')
+//mongoose.connect('mongodb://localhost/libreria')
+mongoose.connect('mongodb://admin:admin1234@ds023432.mlab.com:23432/testcrb5')
+const cors = require('cors')
+
+app.use(cors())
 
 mongoose.connection.once('open', () =>{
     console.log("Me pude conectar a la base de datos =D")
@@ -50,6 +54,11 @@ app.post('/post2', (request, response) => {
 })
 
 //Levanta el servidor
-app.listen(3000, () => {
-    console.log('comenzamos a correr en el puerto 3000');
+// app.listen(5000, () => {
+//     console.log('comenzamos a correr en el puerto 5000');
+// })
+
+//configurar un puerto dinamico
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`comenzamos a correr en el puerto ${process.env.PORT}`);
 })
