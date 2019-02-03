@@ -4,7 +4,8 @@ const cors = require('cors')
 const ClientesImportados = require('./routes/clientes')
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/ts-z10')
+//mongoose.connect('mongodb://localhost/ts-z10')
+mongoose.connect('mongodb://rikisan:abc123@ds037508.mlab.com:37508/ts-z10')
 
  /** middleware */
  app.use(cors())
